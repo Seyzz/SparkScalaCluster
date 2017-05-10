@@ -24,40 +24,40 @@ TODO
 
 Scala est dans les repositories xenial, il suffit donc d'exécuter la commande (dans le terminal) : 
 
-'''
+```
 sudo apt-get install scala
-'''
+```
 
 #### C. Installation de Spark
 
 Vous pouvez vous même vous rendre sur le site de Spark pour télécharger la dernière version directement, ou bien utilisez cette commande pour la version <version_number> :
 
-'''
+```
 wget < URL : TODO >
-'''
+```
 
 #### D. Ajout des variables d'environnements
 
 La meilleure méthode pour modifier des variables d'environement est de les ajouter dans le *~/.bashrc* (ou zsh, fish ...)
 Pour ouvrir votre fichier de configuration :
 
-'''
+```
 nano ~/.bashrc
-'''
+```
 
 Ensuite à la fin de votre fichier ajoutez : 
 
-'''
+```
 export SCALA_HOME=/usr/share/scala-2.11
 export SPARK_HOME=TODO
 export PATH=$PATH:$SPARK_HOME/bin
-'''
+```
 
 Pour rendre les changements effectifs :
 
-'''
+```
 source ~/.bashrc
-'''
+```
 
 ## 3. Configuration du maître
 
