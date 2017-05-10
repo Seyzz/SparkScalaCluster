@@ -47,7 +47,7 @@ nano ~/.bashrc
 
 Ensuite à la fin de votre fichier ajoutez : 
 
-```
+```bash
 export SCALA_HOME=/usr/share/scala-2.11
 export SPARK_HOME=TODO
 export PATH=$PATH:$SPARK_HOME/bin
