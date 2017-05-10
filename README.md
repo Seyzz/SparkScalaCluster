@@ -128,12 +128,56 @@ source ~/.bashrc
 
 #### E. Configuation de /etc/hosts
 
+**TODO**
 
+#### F. Configuration des scripts pour lancer les slaves
+
+- slaves.template -> slaves
+  - TODO
+
+- spark-env.sh.template -> spark-env.sh
+  - TODO
 
 ## 4. Configuration de OpenSSH entre chaque slave / master
 
-**TODO**
+Pour chaque slave il faut faire l'action suivante :
+
+Sur le MAÎTRE :
+
+Générer une clé public : 
+
+```bash
+ssh-keygen -t rsa
+```
+
+Il faut ensuite ajouter cette clé public dans le fichier authorized_keys du slave, on peut le faire directement depuis le MAÎTRE
+
+```bash
+ssh-copy-id user@<ip-address or hostname>
+```
+*Il faudra entrer le mot de passe de la session slave pour se connecter :)*
+
+Sur l'ESCLAVE :
+
+Générer une clé public :
+
+```bash
+ssh-keygen -t rsa
+```
+
+Il faut ensuite ajouter cette clé public dans le fichier authorized_keys du maître, on peut le faire directement depuis l'ESCLAVE avec :
+
+```bash
+ssh-copy-id user@<ip-address or hostname>
+```
+*Il faudra entrer le mot de passe de la session maître pour se connecter :)*
 
 ## 5. Lancement d'un programme Spark sur le cluster
 
 **TODO**
+
+_________________________________________________________________________________________________________________________________
+
+#### Sources : 
+
+- Spark GraphX in Action - *Michael S. Malak* and *Robin East* 
