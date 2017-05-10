@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-Pour un cluster, on pense tout d'abord aux deux entités qui auront un rôle dans celui-ci : Le maître (master) et les esclaves (slaves). Il nous faut donc une machine pour 'contrôler' ce cluster, et des esclaves pour lui obéir.
+Pour un cluster, on pense tout d'abord aux deux entités qui auront un rôle majeur dans celui-ci : Le maître (master) et les esclaves (slaves). Il nous faut donc une machine pour 'contrôler' ce cluster, et des esclaves pour lui obéir.
 
 Plusieurs solutions s'offrent à vous pour ces 'nodes' :
 
@@ -18,22 +18,29 @@ Pour le choix de l'OS, Linux est le plus facile à setup, il me semble néanmoin
 
 #### A. Installation de Java
 
-TODO
+**TODO**
 
 #### B. Installation de Scala
 
 Scala est dans les repositories xenial, il suffit donc d'exécuter la commande (dans le terminal) : 
 
-```
+```bash
 sudo apt-get install scala
 ```
 
 #### C. Installation de Spark
 
-Vous pouvez vous même vous rendre sur le site de Spark pour télécharger la dernière version directement, ou bien utilisez cette commande pour la version <version_number> :
+Vous pouvez vous même vous rendre sur le site de Spark pour télécharger la dernière version directement, ou bien utilisez cette commande pour la version 2.1.0 (28 Décembre 2016) :
 
+```bash
+wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
 ```
-wget < URL : TODO >
+
+Il faut decompresser ce tgz pour ensuite placer cette librairie quelque part (/usr/share/ pour ma part, mais je ne sais pas si c'est le mieux ...) :
+
+```bash
+tar -xvzf spark-2.1.0-bin-hadoop2.7.tgz
+sudo mv spark-2.1.0-bin-hadoop2.7 /usr/share/
 ```
 
 #### D. Ajout des variables d'environnements
@@ -41,7 +48,7 @@ wget < URL : TODO >
 La meilleure méthode pour modifier des variables d'environement est de les ajouter dans le *~/.bashrc* (ou zsh, fish ...)
 Pour ouvrir votre fichier de configuration :
 
-```
+```bash
 nano ~/.bashrc
 ```
 
@@ -49,20 +56,84 @@ Ensuite à la fin de votre fichier ajoutez :
 
 ```bash
 export SCALA_HOME=/usr/share/scala-2.11
-export SPARK_HOME=TODO
+export SPARK_HOME=/usr/share/spark-2.1.0-bin-hadoop2.7
 export PATH=$PATH:$SPARK_HOME/bin
 ```
 
 Pour rendre les changements effectifs :
 
-```
+```bash
 source ~/.bashrc
 ```
 
 ## 3. Configuration du maître
 
-TODO
+#### A. Installation de Java
 
-## 4. Lancement d'un programme Spark avec le cluster
+**[ Même chose que en 2.A ]**
 
-TODO
+**TODO**
+
+#### B. Installation de Scala
+
+**[ Même chose que en 2.B ]**
+
+Scala est dans les repositories xenial, il suffit donc d'exécuter la commande (dans le terminal) : 
+
+```bash
+sudo apt-get install scala
+```
+
+#### C. Installation de Spark
+
+**[ Même chose que en 2.C ]**
+
+Vous pouvez vous même vous rendre sur le site de Spark pour télécharger la dernière version directement, ou bien utilisez cette commande pour la version 2.1.0 (28 Décembre 2016) :
+
+```bash
+wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
+```
+
+Il faut decompresser ce tgz pour ensuite placer cette librairie quelque part (/usr/share/ pour ma part, mais je ne sais pas si c'est le mieux ...) :
+
+```bash
+tar -xvzf spark-2.1.0-bin-hadoop2.7.tgz
+sudo mv spark-2.1.0-bin-hadoop2.7 /usr/share/
+```
+
+#### D. Ajout des variables d'environnements
+
+**[ Même chose que en 2.D ]**
+
+La meilleure méthode pour modifier des variables d'environement est de les ajouter dans le *~/.bashrc* (ou zsh, fish ...)
+Pour ouvrir votre fichier de configuration :
+
+```bash
+nano ~/.bashrc
+```
+
+Ensuite à la fin de votre fichier ajoutez : 
+
+```bash
+export SCALA_HOME=/usr/share/scala-2.11
+export SPARK_HOME=/usr/share/spark-2.1.0-bin-hadoop2.7
+export PATH=$PATH:$SPARK_HOME/bin
+```
+
+Pour rendre les changements effectifs :
+
+```bash
+source ~/.bashrc
+```
+
+#### E. Configuation de /etc/hosts
+
+
+
+## 4. Configuration de OpenSSH entre chaque slave / master
+
+**TODO**
+
+## 5. Lancement d'un programme Spark sur le cluster
+
+**TODO**
